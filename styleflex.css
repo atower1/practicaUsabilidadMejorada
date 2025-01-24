@@ -1,0 +1,18 @@
+/* Estilos específicos para FlexBox */
+
+/* Define un contenedor principal con Flexbox */
+section {
+    display: flex; /* Habilita el modelo de caja flexible */
+    flex-direction: column; /* Alinea los elementos hijos en una columna vertical */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: center; /* Centra los elementos verticalmente */
+    height: 100vh; /* Establece la altura del contenedor como el 100% de la altura de la ventana */
+    background-color: rgba(100, 100, 100, 0.1); /* Aplica un color de fondo con transparencia */
+
+    gap: 20px; /* Añadido gap para mejor separación */
+}
+
+/* Aplica un margen entre los elementos hijos del contenedor */
+section > * {
+    margin: 10px; /* Define un espacio uniforme alrededor de cada elemento */
+}

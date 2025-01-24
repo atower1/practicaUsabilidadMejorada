@@ -1,0 +1,26 @@
+/* Estilos específicos para Grid */
+
+/* Define un contenedor principal con Grid */
+section {
+    display: grid;
+    grid-template-areas:
+        'header header'
+        'content content'
+        'sidebar sidebar';
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 15px;
+}
+
+/* Asigna cada sección a un área de la cuadrícula */
+section#inicio {
+    grid-area: header; /* Área asignada al encabezado */
+}
+
+section#sobre {
+    grid-area: content; /* Área asignada al contenido */
+}
+
+section#contacto {
+    grid-area: sidebar; /* Área asignada a la barra lateral */
+}

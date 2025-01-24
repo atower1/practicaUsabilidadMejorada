@@ -1,0 +1,297 @@
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif; /* Propiedad heredable */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #2c3e50; /* No heredable */
+    color: white; /* Forzar el color del texto en blanco */
+    text-align: center;
+    padding: 1em 0;
+    z-index: 10; /* Header tiene prioridad sobre otros elementos */
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+        "nav header aside"
+        "nav section aside"
+        "nav footer aside";
+    grid-template-columns: 1fr 3fr 1fr; /* Unidad de medida: fr (fracciones) */
+    grid-template-rows: auto 1fr auto;
+    height: 100vh; /* Unidad de medida: vh (vista del navegador) */
+}
+
+/* Navegación con posición sticky */
+nav {
+    grid-area: nav;
+    background-color: #34495e;
+    color: white;
+    padding: 16px;
+    position: sticky; /* Posición sticky aplicada */
+    top: 0; /* Pegado al borde superior */
+    z-index: 1000; /* Asegura que se quede por encima de otros elementos */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para resaltar la barra */
+}
+
+nav ul {
+    list-style: none; /* Omite la herencia de estilos de lista */
+    padding: 0;
+}
+
+/* --------------------------------------------- Inicio Mejora 2 - Navegación intuitiva: Se ha mejorado el estilo --------------------------------------------- */
+
+/* Se ha hecho que los menús parezcan botones, lo que facilita al usuario el uso del menú, ya que no solo parece texto */
+nav ul a li{
+    margin-bottom: 10px; 
+    background-color: #4c6b88;
+    text-align: center;
+    border-radius: 4px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem; /* Unidad de medida: rem (relativa al tamaño de la raíz) */
+    transition: color 0.3s ease;
+}
+
+nav ul a li:hover {
+    background-color: #6792b9; /* Se ha cambiado que cuando pasas el cursor en vez de poner el texto en rojo cambie el color de fondo, lo que hace que sea mas visual para el usuario */
+}
+
+/* ---------------------------------------------------------------------- FINAL Mejora 2 ---------------------------------------------------------------------- */
+
+section {
+    grid-area: section;
+    padding: 2em;
+    background-color: #ecf0f1; /* No heredable */
+}
+
+article {
+    margin-bottom: 2em;
+    padding: 1em;
+    background-color: #ffffff; /* No heredable */
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+}
+
+/* Sobrescritura mediante cascada en los encabezados de los artículos */
+article header h2 {
+    color: #2c3e50; /* Sobrescribe el color predeterminado heredado del body */
+    font-size: 1.5em; /* Cambia el tamaño solo para h2 dentro de article */
+}
+
+/* Pseudoelemento ::after */
+article header h2::after {
+    content: "";
+    display: block;
+    width: 50%; /* Unidad de medida: % */
+    height: 2px; /* Unidad de medida: px */
+    background-color: #e74c3c;
+    margin: 0.5em auto; /* Unidad de medida: em */
+}
+
+
+aside {
+    grid-area: aside;
+    padding: 1em;
+    background-color: rgba(44, 62, 80, 0.8); /* No heredable */
+    border-left: 3px solid #2c3e50;
+
+    color: white;  /* -------------------------------- Mejora 4 - Alto contraste del texto para personas con dificutades visuales --------------------------------  */
+}
+
+/* Selector de id */
+#formulario {
+    grid-area: section;
+    margin-top: 2em;
+    padding: 2em;
+}
+
+/* Combinación de selectores */
+#formulario h2 {
+    color: black; /* -------------------------------- Mejora 4 - Alto contraste del texto para personas con dificutades visuales --------------------------------  */
+    font-size: 2em; /* Tamaño más grande para este caso específico */
+    text-align: center; /* Centrar el texto */
+}
+
+input[type="text"] {
+    border: 1px solid #2c3e50; /* Bordes para los campos de texto */
+    padding: 0.5em;
+    margin: 10px 0px;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 1em;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+
+/* ------------------------------------ Mejora 4 - Texto de los formularios más grande, para personas con problemas de vista ------------------------------------ */
+label{
+    font-size: 17px;
+}
+
+input[type="email"] {
+    font-size: 17px;
+}
+
+button{
+    font-size: 17px;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #2c3e50; /* No heredable */
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    z-index: 10;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+
+.card {
+    position: absolute; /* Contenedor absoluto */
+    background-color: #ffffff;
+    top: 400px;
+    padding: 2em;
+    margin: 1em 0;
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 5;
+}
+
+.card-icon {
+    position: relative; /* Icono relativo al contenedor .card */
+    top: -10px;
+    right: -10px;
+    width: 40px;
+    height: 40px;
+    background-color: #e74c3c;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 40px; /* Centra el texto verticalmente */
+    border-radius: 50%;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 20;
+}
+
+/* Media Queries */
+
+/* Pantallas pequeñas (menos de 768px) */
+@media (max-width: 768px) {
+    .container {
+        grid-template-areas:
+            "header"
+            "nav"
+            "section"
+            "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    nav {
+        padding: 12px;
+    }
+
+    aside {
+        display: none; /* Elimina el aside en pantallas pequeñas */
+    }
+
+    section {
+        padding: 1em;
+    }
+
+    .card {
+        margin: 1em 0;
+        top: 500px;
+
+    }
+}
+
+/* Pantallas medianas (768px a 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        grid-template-areas:
+            "header"
+            "nav"
+            "section"
+            "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    aside {
+        display: none; /* También oculta el aside en pantallas medianas */
+    }
+
+    section {
+        padding: 1.5em;
+    }
+    .card {
+        margin: 1em 0;
+        top: 500px;
+
+    }
+
+    /* -------------------------- Mejora 1 - Se han agregado valores para formulario y footer para que se adapte el diseño a pantallas mas pequeñas -------------------------- */
+    #formulario {
+        grid-area: section;
+        margin-top: 20px;
+        padding-top: 0px;
+    }
+
+    footer{
+        position: fixed;
+        margin-bottom: 0px;
+        bottom: 0px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-areas:
+            "header"
+            "nav"
+            "section"
+            "footer";
+    }
+    
+    .card {
+        position: absolute; /* Antes era absoluta, ahora se adapta mejor */
+        margin: 10px auto; /* Centrado automático */
+        top: 490px;
+    }
+
+
+    /* -------------------------- Mejora 1 - Se han agregado valores para formulario y footer para que se adapte el diseño a pantallas mas pequeñas -------------------------- */
+    #formulario {
+        grid-area: section;
+        margin-top: 20px;
+        padding-top: 0px;
+    }
+
+    footer{
+        position: fixed;
+        margin-bottom: 0px;
+        bottom: 0px;
+    }
+}
